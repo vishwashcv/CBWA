@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #737373;
+}
+
+.nav{
+    background-color: #D67D4B;
+    width: 5vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon{
+    margin: 3vh 1vw 4vh;
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    transition: 0.2s;
+    border-radius: 200px;
+}
+
+.icon:hover{
+    background-color: #9a532a;
+}
+
+
+.flex{
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator-answers{
+    width: 26.2vw;
+    background-color: #1D1D1D;
+    height: 37.4vh;
+    color: white;
+    font-size: 45px;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+
+
+.main{
+    display: flex;
+}
+
+.calculator{
+    font-family: 'Inter', sans-serif;
+}
+
+.calculator-buttons{
+    width: 26.2vw;
+    height: 62.6vh;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    transition: 0.2s;
+}
+
+.calculator-buttons > button{
+    transition: 0.13s;
+}
+
+
+.calculator-buttons> button:hover{
+    background-color: #c4c4c4;
+}
+
+.calculator-buttons > .button-numbers, .calculator-buttons > .button-operators{
+    font-size: 2.6rem;
+    width: 6.48vw;
+    height: 12.44vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    border: none;
+    font-family: 'Inter', sans-serif;   
+}
+
+.button-clear{
+    width: 13.04vw;
+    height: 12.42vh;
+    font-size: 2rem;
+    background-color: #D9D9D9;
+}
+
+.button-numbers{
+    background-color: #D9D9D9;
+}
+
+.button-operators{
+    background-color: #D67D4B;
+}

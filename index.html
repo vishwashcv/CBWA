@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>CWA</title>
+</head>
+<body>
+    <main class="main">
+        <nav class="nav">
+            <div>
+                <img class="icon" src="./images/trending-icon.svg" />
+            </div>
+            <div class="flex">
+                <img class="icon" src="./images/profile-icon.svg"/>
+                <img class="icon" src="./images/settings-icon.svg"/>
+            </div>
+        </nav>
+        <div class="calculator">
+            <div class="calculator-answers">
+                <div class="screen"></div>
+            </div>
+            <div class="calculator-buttons buttons">
+                <button id="clear" class="button-clear">CLEAR</button>
+                <button id="clear" class="button-clear">DELETE</button>
+                <button class="button-numbers">1</button>
+                <button class="button-numbers">2</button>
+                <button class="button-numbers">3</button>
+                <button class="button-operators">/</button>
+                <button class="button-numbers">4</button>
+                <button class="button-numbers">5</button>
+                <button class="button-numbers">6</button>
+                <button class="button-operators">*</button>
+                <button class="button-numbers">7</button>
+                <button class="button-numbers">8</button>
+                <button class="button-numbers">9</button>
+                <button class="button-operators">-</button>
+                <button class="button-numbers">.</button>
+                <button class="button-numbers">0</button>
+                <button class="button-operators">=</button>
+                <button class="button-operators">+</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        function action(){
+            document.getElementById('ans').innerHTML = displaye.value += '1';
+        };
+        function button(){
+            let one = '1';
+        }
+
+
+        const screenDisplay = document.querySelector('.screen')
+        const buttons = document.querySelectorAll('button')
+        let calculation = []
+        let accumulativeCalculation
+        function calculate (button) {
+        const value = button.textContent
+        if (value === "CLEAR") {
+        calculation = []
+        screenDisplay.textContent = "0";
+        }
+        else if (value === "=") {
+        console.log()
+        screenDisplay.textContent = eval(accumulativeCalculation)
+        } else if (value === "DELETE"){
+            calculation.pop()
+            accumulativeCalculation = calculation.join('')
+            screenDisplay.textContent = accumulativeCalculation
+        } else {
+        calculation.push(value)
+        accumulativeCalculation = calculation.join('')
+        screenDisplay.textContent = accumulativeCalculation
+        screenDisplay.style.maxWidth = "26.1vw";
+        screenDisplay.style.wordBreak = "break-all";
+        }
+        }
+    buttons.forEach (button => button.addEventListener('click', () => calculate (button)))
+    </script>
+</body>
+</html>
