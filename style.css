@@ -73,6 +73,9 @@ body{
     transition: 0.13s;
 }
 
+.ans-screen{
+    display: block;
+}
 
 .calculator-buttons> button:hover{
     background-color: #c4c4c4;
