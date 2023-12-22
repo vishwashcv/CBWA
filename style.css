@@ -175,7 +175,10 @@ button{
         display: none;
     }
     .card{
-        margin: 5px;
-        width: 90vw;
+        margin: 1vh 1vw;
+        width: 95vw;
+    }
+    .block{
+        margin: 0;
     }
 }
