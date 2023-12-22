@@ -166,3 +166,16 @@ button{
     right: 0;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 1000px) {
+    .nav{
+        display: none;
+    }
+    .calculator{
+        display: none;
+    }
+    .card{
+        margin: 5px;
+        width: 90vw;
+    }
+}
