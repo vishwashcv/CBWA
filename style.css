@@ -70,11 +70,6 @@ body{
     justify-content: center;
     align-items: center;
     gap: 1px;
-    transition: 0.2s;
-}
-
-.calculator-buttons > button{
-    transition: 0.13s;
 }
 
 .ans-screen{
@@ -82,7 +77,8 @@ body{
 }
 
 .calculator-buttons> button:hover{
-    background-color: #c4c4c4;
+    transition: 0.2s;
+    background-color: #a3a3a3;
 }
 
 .calculator-buttons > .button-numbers, .calculator-buttons > .button-operators{
@@ -111,7 +107,7 @@ button{
 }
 
 .button-operators{
-    background-color: #a183f3;
+    background-color: #482a9a;
     color: white;
 }
 
@@ -128,7 +124,7 @@ button{
 .card{
     background-color: #D9D9D9;
     margin: 5px 10px 5px 0;
-    width: 33vw;
+    min-width: 33vw;
     height: 80vh;
     padding: 16px;
 }
@@ -153,21 +149,32 @@ button{
     justify-content: space-between;
     align-items: flex;
     margin-left: 32vw;
-    padding-top: 10px;
+    padding-top: 46px;
     flex-wrap: wrap;
 }
 
 .privacy-policy{
     background-color: #482a9a;
     color: #c4c4c4;
-    position: fixed;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
     padding: 10px 20px;
-    bottom: 0;
+    top: 0;
     right: 0;
+    width: 68vw;
     cursor: pointer;
 }
 
-@media only screen and (max-width: 1000px) {
+
+@media only screen and (max-width: 1780px) {
+    .card{
+        width: 66vw;
+    }
+}
+
+
+@media only screen and (max-width: 1200px) {
     .nav{
         display: none;
     }
@@ -181,5 +188,8 @@ button{
     }
     .block{
         margin: 0;
+    }
+    .privacy-policy{
+        width: 100vw;
     }
 }
