@@ -5,16 +5,18 @@
 
 body{
     background-color: #737373;
+    font-family: 'Inter', sans-serif;
 }
 
 .nav{
-    background-color: #D67D4B;
+    background-color: #a183f3;
     width: 5vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
 }
 
 .icon{
@@ -27,7 +29,7 @@ body{
 }
 
 .icon:hover{
-    background-color: #9a532a;
+    background-color: #482a9a;
 }
 
 
@@ -54,6 +56,8 @@ body{
 
 .calculator{
     font-family: 'Inter', sans-serif;
+    position: fixed;
+    left: 5vw;
 }
 
 .calculator-buttons{
@@ -107,5 +111,58 @@ button{
 }
 
 .button-operators{
-    background-color: #D67D4B;
+    background-color: #a183f3;
+    color: white;
+}
+
+.title{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 28px;
+    padding-bottom: 10px;
+}
+
+.data{
+    font-family: 'Inter', sans-serif;
+}
+
+.card{
+    background-color: #D9D9D9;
+    margin: 5px 10px 5px 0;
+    width: 33vw;
+    height: 80vh;
+    padding: 16px;
+}
+
+
+.Date{
+    padding-bottom: 10px;
+}
+
+.close{
+    background-color: red;
+    color: white;   
+    padding: 10px;
+}
+
+.card-flex{
+    display: flex;
+}
+
+.block{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex;
+    margin-left: 32vw;
+    padding-top: 10px;
+    flex-wrap: wrap;
+}
+
+.privacy-policy{
+    background-color: #482a9a;
+    color: #c4c4c4;
+    position: fixed;
+    padding: 10px 20px;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
 }
