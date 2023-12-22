@@ -149,7 +149,7 @@ button{
     justify-content: space-between;
     align-items: flex;
     margin-left: 32vw;
-    padding-top: 46px;
+    padding-top: 3rem;
     flex-wrap: wrap;
 }
 
@@ -163,9 +163,11 @@ button{
     top: 0;
     right: 0;
     width: 68vw;
-    cursor: pointer;
 }
 
+.privacy{
+    cursor: pointer;
+}
 
 @media only screen and (max-width: 1780px) {
     .card{
