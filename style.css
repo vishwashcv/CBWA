@@ -39,7 +39,7 @@ body{
 }
 
 .calculator-answers{
-    width: 26.2vw;
+    width: 26vw;
     background-color: #1D1D1D;
     height: 37.4vh;
     color: white;
@@ -61,15 +61,17 @@ body{
 }
 
 .calculator-buttons{
-    width: 26.2vw;
+    width: 26vw;
     height: 62.6vh;
-    background-color: black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1px;
+}
+
+.button-numbers, .button-clear, .button-operators{
+    border: 0.5px solid rgb(133, 133, 133);
 }
 
 .ans-screen{
@@ -96,7 +98,7 @@ button{
 }
 
 .button-clear{
-    width: 13.04vw;
+    width: 13vw;
     height: 12.42vh;
     font-size: 2rem;
     background-color: #D9D9D9;
@@ -156,17 +158,26 @@ button{
 .privacy-policy{
     background-color: #482a9a;
     color: #c4c4c4;
-    position: absolute;
+    position: fixed;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px 40px;
     top: 0;
     right: 0;
-    width: 68vw;
+    width: 100vw;
+}
+
+.trending-icon{
+    margin-top: 60px;
 }
 
 .privacy{
     cursor: pointer;
+}
+
+.privacy:hover{
+    border-bottom: 1px solid #c4c4c4;
 }
 
 @media only screen and (max-width: 1780px) {
@@ -193,5 +204,6 @@ button{
     }
     .privacy-policy{
         width: 100vw;
+        padding: 10px 30px;
     }
 }
