@@ -84,7 +84,7 @@ body{
 }
 
 .calculator-buttons > .button-numbers, .calculator-buttons > .button-operators{
-    font-size: 2.2rem;
+    font-size: 2.3rem;
     width: 6.48vw;
     height: 12.44vh;
     display: flex;
