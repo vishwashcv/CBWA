@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>CBWA</title>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -25,27 +26,30 @@
         </nav>
         <div class="calculator">
             <div class="calculator-answers">
-                <div class="screen"></div>
+                <div class="output screen">
+                    <div data-previous-operand class="previous-operand"></div>
+                    <div data-current-operand class="current-operand"></div>
+                  </div>
             </div>
             <div class="calculator-buttons buttons">
-                <button id="clear" class="button-clear">CLEAR</button>
-                <button id="clear" class="button-clear">DELETE</button>
-                <button class="button-numbers">1</button>
-                <button class="button-numbers">2</button>
-                <button class="button-numbers">3</button>
-                <button class="button-operators">/</button>
-                <button class="button-numbers">4</button>
-                <button class="button-numbers">5</button>
-                <button class="button-numbers">6</button>
-                <button class="button-operators">*</button>
-                <button class="button-numbers">7</button>
-                <button class="button-numbers">8</button>
-                <button class="button-numbers">9</button>
-                <button class="button-operators">-</button>
-                <button class="button-numbers">.</button>
-                <button class="button-numbers">0</button>
-                <button class="button-operators">=</button>
-                <button class="button-operators">+</button>
+                <button  id="clear" class="button-clear"data-all-clear class="span-two">ALL CLEAR</button>
+                <button  id="clear" class="button-clear" data-delete>DELETE</button>
+                <button  class="button-operators" data-operation>÷</button>
+                <button class="button-numbers" data-number>1</button>
+                <button class="button-numbers" data-number>2</button>
+                <button class="button-numbers" data-number>3</button>
+                <button class="button-operators" data-operation>*</button>
+                <button class="button-numbers" data-number>4</button>
+                <button class="button-numbers" data-number>5</button>
+                <button class="button-numbers" data-number>6</button>
+                <button class="button-operators" data-operation>+</button>
+                <button class="button-numbers" data-number>7</button>
+                <button class="button-numbers" data-number>8</button>
+                <button class="button-numbers" data-number>9</button>
+                <button class="button-operators" data-operation>-</button>
+                <button class="button-operators" data-number>.</button>
+                <button class="button-numbers" data-number>0</button>
+                <button class="button-operators" data-equals class="span-two">=</button>
             </div>
         </div>
 
@@ -214,7 +218,7 @@
         let accumulativeCalculation
         function calculate(button) {
             const value = button.textContent
-            if (value === "CLEAR") {
+            if (value === "ALL CLEAR") {
                 calculation = []
                 screenDisplay.textContent = "0";
             }
