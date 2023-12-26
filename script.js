@@ -1,126 +1,27 @@
-class Calculator {
-    constructor(previousOperandTextElement, currentOperandTextElement) {
-      this.previousOperandTextElement = previousOperandTextElement
-      this.currentOperandTextElement = currentOperandTextElement
-      this.clear()
-    }
-
-    clear() {
-      this.currentOperand = ''
-      this.previousOperand = ''
-      this.operation = undefined
-    }
-  
-    delete() {
-      this.currentOperand = this.currentOperand.toString().slice(0, -1)
-    }
-  
-    appendNumber(number) {
-      if (number === '.' && this.currentOperand.includes('.')) return
-      this.currentOperand = this.currentOperand.toString() + number.toString()
-    }
-  
-    chooseOperation(operation) {
-      if (this.currentOperand === '') return
-      if (this.previousOperand !== '') {
-        this.compute()
-      }
-      this.operation = operation
-      this.previousOperand = this.currentOperand
-      this.currentOperand = ''
-    }
-  
-    compute() {
-      let computation
-      const prev = parseFloat(this.previousOperand)
-      const current = parseFloat(this.currentOperand)
-      if (isNaN(prev) || isNaN(current)) return
-      switch (this.operation) {
-        case '+':
-          computation = prev + current
-          break
-        case '-':
-          computation = prev - current
-          break
-        case '*':
-          computation = prev * current
-          break
-        case '÷':
-          computation = prev / current
-          break
-        default:
-          return
-      }
-      this.currentOperand = computation
-      this.operation = undefined
-      this.previousOperand = ''
-    }
-  
-    getDisplayNumber(number) {
-      const stringNumber = number.toString()
-      const integerDigits = parseFloat(stringNumber.split('.')[0])
-      const decimalDigits = stringNumber.split('.')[1]
-      let integerDisplay
-      if (isNaN(integerDigits)) {
-        integerDisplay = ''
-      } else {
-        integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
-      }
-      if (decimalDigits != null) {
-        return `${integerDisplay}.${decimalDigits}`
-      } else {
-        return integerDisplay
-      }
-    }
-  
-    updateDisplay() {
-      this.currentOperandTextElement.innerText =
-        this.getDisplayNumber(this.currentOperand)
-      if (this.operation != null) {
-        this.previousOperandTextElement.innerText =
-          `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
-      } else {
-        this.previousOperandTextElement.innerText = ''
-      }
-    }
+const display = document.querySelector(".display");
+const buttons = document.querySelectorAll("button");
+const specialChars = ["%", "*", "/", "-", "+", "="];
+let output = "";
+//Define function to calculate based on button clicked.
+const calculate = (btnValue) => {
+  display.focus();
+  if (btnValue === "=" && output !== "") {
+    //If output has '%', replace with '/100' before evaluating.
+    output = eval(output.replace("%", "/100"));
+  } else if (btnValue === "AC") {
+    output = "";
+  } else if (btnValue === "DEL") {
+    //If DEL button is clicked, remove the last character from the output.
+    output = output.toString().slice(0, -1);
+  } else {
+    //If output is empty and button is specialChars then return
+    if (output === "" && specialChars.includes(btnValue)) return;
+    output += btnValue;
   }
-  
-  
-  const numberButtons = document.querySelectorAll('[data-number]')
-  const operationButtons = document.querySelectorAll('[data-operation]')
-  const equalsButton = document.querySelector('[data-equals]')
-  const deleteButton = document.querySelector('[data-delete]')
-  const allClearButton = document.querySelector('[data-all-clear]')
-  const previousOperandTextElement = document.querySelector('[data-previous-operand]')
-  const currentOperandTextElement = document.querySelector('[data-current-operand]')
-  
-  const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
-  
-  numberButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      calculator.appendNumber(button.innerText)
-      calculator.updateDisplay()
-    })
-  })
-  
-  operationButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      calculator.chooseOperation(button.innerText)
-      calculator.updateDisplay()
-    })
-  })
-  
-  equalsButton.addEventListener('click', button => {
-    calculator.compute()
-    calculator.updateDisplay()
-  })
-  
-  allClearButton.addEventListener('click', button => {
-    calculator.clear()
-    calculator.updateDisplay()
-  })
-  
-  deleteButton.addEventListener('click', button => {
-    calculator.delete()
-    calculator.updateDisplay()
-  })
+  display.value = output;
+};
+//Add event listener to buttons, call calculate() on click.
+buttons.forEach((button) => {
+  //Button click listener calls calculate() with dataset value as argument.
+  button.addEventListener("click", (e) => calculate(e.target.dataset.value));
+});
